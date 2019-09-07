@@ -10,7 +10,7 @@
 
 function (add_ghelp_target docname lang entities figures)
 
-    set(BUILD_DIR "${DATADIR_BUILD}/gnome/help/${docname}/${lang}")
+    set(BUILD_DIR "${DATADIR_BUILD}/help/${lang}/${docname}")
     file(MAKE_DIRECTORY "${BUILD_DIR}")
     file(MAKE_DIRECTORY "${BUILD_DIR}/figures")
 
@@ -46,9 +46,9 @@ function (add_ghelp_target docname lang entities figures)
     add_dependencies(${docname}-ghelp "${lang}-${docname}-ghelp")
 
     install(FILES ${source_files}
-        DESTINATION "${CMAKE_INSTALL_DATADIR}/gnome/help/${docname}/${lang}"
+        DESTINATION "${CMAKE_INSTALL_DATADIR}/help/${lang}/${docname}"
         COMPONENT "ghelp")
     install(FILES ${figures}
-        DESTINATION "${CMAKE_INSTALL_DATADIR}/gnome/help/${docname}/${lang}/figures"
+        DESTINATION "${CMAKE_INSTALL_DATADIR}/help/${lang}/${docname}/figures"
         COMPONENT "ghelp")
 endfunction()
